@@ -7,6 +7,8 @@ import { AddPostComponent } from './post/add-post/add-post.component';
 import { PostDetailComponent } from './post/post-detail/post-detail.component';
 import { CommentListComponent } from './comment/comment-list/comment-list.component';
 import { AddCommentComponent } from './comment/add-comment/add-comment.component';
+import { CategoryListComponent } from './category/category-list/category-list.component';
+import { AddCategoryComponent } from './category/add-category/add-category.component';
 
 const routes: Routes = [
   {path: 'user-list', component: UserListComponent},
@@ -15,7 +17,10 @@ const routes: Routes = [
   {path: 'add-post', component: AddPostComponent},
   {path: 'post-list/:id', component: PostDetailComponent},
   {path: 'comment-list', component: CommentListComponent},
-  {path: 'add-comment', component: AddCommentComponent}
+  {path: 'add-comment', component: AddCommentComponent},
+  {path: 'category-list', component: CategoryListComponent},
+  {path: 'add-category', component: AddCategoryComponent}
+
 ];
 
 @NgModule({

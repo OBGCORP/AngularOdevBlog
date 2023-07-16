@@ -21,11 +21,13 @@ export class UserListComponent {
     this.users = userService.getUsers();
   }
 
+  //Output kullanimi
   handleEditClick($event: number) {
     this.editMode = !this.editMode;
     this.userId = $event;
   }
 
+  //Output kullanimi
   handleDeleteClick($event: number) {
     if(this.userService.isLastUser()) {
       alert('Can not delete the only user remaining.');
@@ -57,6 +59,7 @@ export class UserListComponent {
     }
   }
 
+  //Tum verileri resetleme
   handleCancelClick() {
     this.editMode = false;
     this.username = "";

@@ -32,7 +32,6 @@ export class AddUserComponent {
       this.userService.addUser(this.user);
       this.router.navigateByUrl("/user-list");
     }
-    
   }
 
   handleCancelClick() {

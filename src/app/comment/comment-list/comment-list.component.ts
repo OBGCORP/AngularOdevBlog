@@ -8,7 +8,7 @@ import { CommentService } from '../comment.service';
   styleUrls: ['./comment-list.component.css']
 })
 export class CommentListComponent {
-  comments: Comment[] = []
+  comments: Comment[] = [];
   editMode: boolean = false;
   comment: Comment = {
     commentId: 0,
@@ -30,11 +30,18 @@ export class CommentListComponent {
   }
 
   handleCommentDelete(id: number) {
-
+    this.commentService.deleteComment(id);
+    this.comments = this.commentService.getComments();
   }
 
-  handleSaveEdit() {
-    
+  handleSaveEdit(id: number) {
+    const commentToEdit = this.comments.find((comment) => comment.commentId === id);
+    commentToEdit!.postId = this.comment.postId;
+    commentToEdit!.userId = this.comment.userId;
+    commentToEdit!.comment = this.comment.comment;
+    commentToEdit!.creationDate = this.comment.creationDate;
+    commentToEdit!.isConfirmed = this.comment.isConfirmed;
+    this.editMode = false;
   }
 
   handleCancelEdit() {

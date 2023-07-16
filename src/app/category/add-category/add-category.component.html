@@ -1,0 +1,8 @@
+<form>
+  <label for="name">Category Name</label>
+  <input type="text" [(ngModel)]="this.category.name" name="name">
+  <label for="creationDate">Creation Date</label>
+  <input type="date" [(ngModel)]="this.category.creationDate" name="creationDate">
+  <button (click)="handleAddCategory()">Save</button>
+  <button (click)="handleCancelAdd()">Cancel</button>
+</form>

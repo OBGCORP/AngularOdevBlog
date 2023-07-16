@@ -22,9 +22,10 @@
     </tr>
   </tbody>
 </table>
-<button>Add Comment</button>
+<button [routerLink]="'/add-comment'">Add Comment</button>
 
 <form *ngIf="editMode">
+  <label for="commentId">Comment ID: {{ this.comment.commentId }} </label>
   <label for="postId">Post ID</label>
   <input type="number" [(ngModel)]="this.comment.postId" name="postId">
   <label for="userId">User ID</label>
@@ -38,6 +39,6 @@
     <option [value]="true">Confirmed</option>
     <option [value]="false">Not Confirmed</option>
   </select>
-  <button (click)="handleSaveEdit()">Save</button>
+  <button (click)="handleSaveEdit(this.comment.commentId)">Save</button>
   <button (click)="handleCancelEdit()">Cancel</button>
 </form>

@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <tr>
+      <th>Category ID</th>
+      <th>Category Name</th>
+      <th>Creation Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of categories">
+      <td>{{ category.categoryId }}</td>
+      <td>{{ category.name }}</td>
+      <td>{{ category.creationDate | date}}</td>
+      <button (click)="handleCategoryEdit(category.categoryId)">Edit</button>
+      <button (click)="handleCategoryDelete(category.categoryId)">Delete</button>
+    </tr>
+  </tbody>
+  <button [routerLink]="'/add-category'">Add Category</button>
+</table>
+
+<form *ngIf="editMode">
+  <label for="categoryId">Category ID: {{this.category.categoryId}} </label>
+  <label for="name">Category Name</label>
+  <input type="text" [(ngModel)]="this.category.name" name="name">
+  <label for="creationDate">Creation Date</label>
+  <input type="date" [(ngModel)]="this.category.creationDate" name="creationDate">
+  <button (click)="handleSaveEdit(this.category.categoryId)">Save</button>
+  <button (click)="handleCancelEdit()">Cancel</button>
+</form>
