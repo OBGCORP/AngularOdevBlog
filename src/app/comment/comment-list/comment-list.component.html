@@ -1,0 +1,43 @@
+<table *ngIf="!editMode">
+  <thead>
+    <tr>
+      <th>Comment ID</th>
+      <th>Post ID</th>
+      <th>User ID</th>
+      <th>Comment</th>
+      <th>Creation Date</th>
+      <th>Confirmed?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let comment of comments">
+      <td>{{ comment.commentId }}</td>
+      <td>{{ comment.postId }}</td>
+      <td>{{ comment.userId }}</td>
+      <td>{{ comment.comment }}</td>
+      <td>{{ comment.creationDate }}</td>
+      <td>{{ comment.isConfirmed }}</td>
+      <button (click)="handleCommentEdit(this.comment.commentId)">Edit</button>
+      <button (click)="handleCommentDelete(this.comment.commentId)">Delete</button>
+    </tr>
+  </tbody>
+</table>
+<button>Add Comment</button>
+
+<form *ngIf="editMode">
+  <label for="postId">Post ID</label>
+  <input type="number" [(ngModel)]="this.comment.postId" name="postId">
+  <label for="userId">User ID</label>
+  <input type="number" [(ngModel)]="this.comment.userId" name="userId">
+  <label for="comment">Comment</label>
+  <input type="text" [(ngModel)]="this.comment.comment" name="comment">
+  <label for="creationDate">Creation Date</label>
+  <input type="date" [(ngModel)]="this.comment.creationDate" name="creationDate">
+  <label for="isConfirmed">Confirmed?</label>
+  <select [(ngModel)]="this.comment.isConfirmed" name="isConfirmed">
+    <option [value]="true">Confirmed</option>
+    <option [value]="false">Not Confirmed</option>
+  </select>
+  <button (click)="handleSaveEdit()">Save</button>
+  <button (click)="handleCancelEdit()">Cancel</button>
+</form>

@@ -1,0 +1,12 @@
+table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+  background-color: blanchedalmond;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

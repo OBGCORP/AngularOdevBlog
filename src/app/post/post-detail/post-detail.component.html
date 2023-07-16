@@ -1,0 +1,59 @@
+<div class="post-info" *ngIf="!editMode">
+  <div class="post-detail">
+    <div class="header">
+      <p>Post ID: {{ this.post.postId }}</p>
+      <h1>{{ this.post.title }}</h1>
+    </div>
+    <div class="post-content">
+      <h2>Content</h2>
+      <p>{{ this.post.content }}</p>
+    </div>
+    <div class="footer">
+      <div>
+        <h2>Category</h2>
+        <p>category1</p>
+      </div>
+      <div>
+        <h2>Creation Date</h2>
+        <p>{{ this.post.creationDate | date }}</p>
+      </div>
+      <div>
+        <h2>Posted By</h2>
+        <p>Username: {{ users[post.userId - 1].username }}</p>
+        <p>User ID: {{ post.userId }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<button (click)="handleEditPost()">Edit Post</button>
+<button [routerLink]="'/post-list'">Back</button>
+
+<div class="post-info" *ngIf="editMode">
+  <div class="post-detail">
+    <div class="header">
+      <p>{{ this.post.postId }}</p>
+      <input type="text" [(ngModel)]="this.post.title">
+    </div>
+    <div class="post-content">
+      <h2>Content</h2>
+      <input type="text" [(ngModel)]="this.post.content">
+    </div>
+    <div class="footer">
+      <div>
+        <h2>Category</h2>
+        <input type="text" [(ngModel)]="this.post.categoryId">
+      </div>
+      <div>
+        <h2>Creation Date</h2>
+        <input type="date" [(ngModel)]="this.post.creationDate">
+      </div>
+      <div>
+        <h2>Posted By</h2>
+        <p>Username: {{ users[post.userId - 1].username }}</p>
+        <p>User ID: {{ post.userId }}</p>
+      </div>
+    </div>
+  </div>
+  <button (click)="handleCancelEdit()">Cancel</button>
+  <button (click)="handleSaveEdit()">Save</button>
+</div>
