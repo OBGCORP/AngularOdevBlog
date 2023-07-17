@@ -4,6 +4,7 @@
       <th>Category ID</th>
       <th>Category Name</th>
       <th>Creation Date</th>
+      <button [routerLink]="'/add-category'">Add Category</button>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +16,6 @@
       <button (click)="handleCategoryDelete(category.categoryId)">Delete</button>
     </tr>
   </tbody>
-  <button [routerLink]="'/add-category'">Add Category</button>
 </table>
 
 <form *ngIf="editMode">

@@ -1,7 +1,17 @@
 .navbar {
   display: flex;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  box-sizing: border-box;
+  height: 35px;
   align-items: center;
   justify-content: space-between;
+  font-family: 'Gill Sans', sans-serif;
+  background-color: rgb(0, 93, 19);
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .nav-rightside {
@@ -9,6 +19,16 @@
   gap: 10px;
 }
 
-a {
+.nav-leftside {
+  font-weight: bold;
+}
+
+a:link, a:visited {
   text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+a:hover {
+  font-size: larger;
+  color: rgb(25, 218, 0);
 }

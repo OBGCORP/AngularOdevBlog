@@ -1,11 +1,12 @@
 <table>
   <thead>
     <tr>
-      <th>userId</th>
-      <th>username</th>
-      <th>email</th>
-      <th>creationDate</th>
-      <th>isActive</th>
+      <th>User ID</th>
+      <th>Username</th>
+      <th>E-mail</th>
+      <th>Creation Date</th>
+      <th>Active?</th>
+      <a [routerLink]="'/add-user'"><button>Add User</button></a>
     </tr>
   </thead>
   <tbody>
@@ -22,12 +23,12 @@
     </tr>
   </tbody>
 </table>
-<a [routerLink]="'/add-user'"><button>Add New User</button></a>
+
 
 <form *ngIf="editMode">
   <label for="username">Username</label>
   <input type="text" [(ngModel)]="username" name="username">
-  <label for="email">e-Mail</label>
+  <label for="email">E-Mail</label>
   <input type="email" [(ngModel)]="email" name="email">
   <label for="creationDate">Creation Date</label>
   <input type="date" [(ngModel)]="creationDate" name="creationDate">
